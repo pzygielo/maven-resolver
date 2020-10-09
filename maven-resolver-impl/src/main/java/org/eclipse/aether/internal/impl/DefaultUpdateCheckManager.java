@@ -513,7 +513,6 @@ public class DefaultUpdateCheckManager
 
     public void touchArtifact( RepositorySystemSession session, UpdateCheck<Artifact, ArtifactTransferException> check )
     {
-        Artifact artifact = check.getItem();
         File artifactFile = check.getFile();
         File touchFile = getTouchFile( artifactFile );
 
@@ -544,7 +543,6 @@ public class DefaultUpdateCheckManager
 
     public void touchMetadata( RepositorySystemSession session, UpdateCheck<Metadata, MetadataTransferException> check )
     {
-        Metadata metadata = check.getItem();
         File metadataFile = check.getFile();
         File touchFile = getMetadataTouchFile( metadataFile );
 
