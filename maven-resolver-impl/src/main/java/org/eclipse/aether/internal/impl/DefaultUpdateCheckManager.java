@@ -246,7 +246,7 @@ public class DefaultUpdateCheckManager
 
         boolean fileExists = check.isFileValid() && metadataFile.exists();
 
-        File touchFile = getTouchFile( metadata, metadataFile );
+        File touchFile = getMetadataTouchFile( metadata, metadataFile );
         Properties props = read( touchFile );
 
         String updateKey = getUpdateKey( session, metadataFile, repository );
@@ -364,7 +364,7 @@ public class DefaultUpdateCheckManager
         return new File( artifactFile.getPath() + UPDATED_KEY_SUFFIX );
     }
 
-    private File getTouchFile( Metadata metadata, File metadataFile )
+    private File getMetadataTouchFile( Metadata metadata, File metadataFile )
     {
         return new File( metadataFile.getParent(), "resolver-status.properties" );
     }
@@ -547,7 +547,7 @@ public class DefaultUpdateCheckManager
     {
         Metadata metadata = check.getItem();
         File metadataFile = check.getFile();
-        File touchFile = getTouchFile( metadata, metadataFile );
+        File touchFile = getMetadataTouchFile( metadata, metadataFile );
 
         String updateKey = getUpdateKey( session, metadataFile, check.getRepository() );
         String dataKey = getDataKey( metadata, metadataFile, check.getAuthoritativeRepository() );
